@@ -1650,3 +1650,183 @@ html[lang="zh-Hant"] .lang-en { display: none; }
     display: block;
   }
 }
+/* ============================================
+   Photography — Desktop & Mobile
+   ============================================ */
+
+/* 預設：桌面端顯示滑塊，隱藏手機封面 */
+.mobile-cover {
+  display: none;
+}
+
+/* 手機端相簿全屏層（預設隱藏） */
+.mobile-album {
+  display: none;
+}
+
+/* 桌面端滑塊 */
+.gallery-slider {
+  display: flex;
+  flex-direction: row;
+  height: 52vh;
+  min-height: 320px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slide img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.94);
+}
+
+/* 手機端：切換成封面圖模式 */
+@media (max-width: 768px) {
+  /* 隱藏桌面端滑塊 */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* 顯示手機端封面 */
+  .mobile-cover {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .mobile-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-cover:active img {
+    transform: scale(1.02);
+    filter: brightness(0.94);
+  }
+
+  .mobile-cover-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #1a1a1a;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+  }
+
+  /* 手機端全屏相簿 */
+  .mobile-album {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #faf9f6;
+    z-index: 90;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .mobile-album.is-open {
+    display: flex;
+  }
+
+  .mobile-album-close {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    margin: 16px 20px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #6a6a6a;
+    cursor: pointer;
+    font-family: inherit;
+    z-index: 2;
+  }
+
+  .mobile-album-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px 40px;
+  }
+
+  .mobile-album-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    cursor: zoom-in;
+  }
+}
+/* 頁面頂部留出導航欄高度 */
+.gallery-page {
+  padding-top: calc(var(--nav) + 40px);
+}
+
+/* 手機端也留出 */
+@media (max-width: 768px) {
+  .gallery-page {
+    padding-top: calc(var(--nav) + 20px);
+  }
+}
+/* 文字區塊居中（限制寬度） */
+.page-intro,
+.album-heading,
+.curators-note {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* 相簿標題本來就有 padding，統一 */
+.album-heading {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* 手機端 */
+@media (max-width: 768px) {
+  .page-intro,
+  .album-heading,
+  .curators-note {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
