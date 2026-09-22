@@ -1544,4 +1544,52 @@ html[lang="zh-Hant"] .lang-en { display: none; }
   -ms-user-select: none;
   pointer-events: auto;
 }
-  
+@media (max-width: 768px) {
+  /* 1. 縮小文字 */
+  h1 {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .page-wide > .kicker {
+    font-size: 0.65rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .album-heading {
+    font-size: 0.95rem !important;
+    gap: 8px !important;
+  }
+
+  .album-num {
+    font-size: 0.7rem !important;
+  }
+
+  .album-meta {
+    margin-top: 12px !important;
+  }
+
+  .album-block {
+    margin-bottom: 40px !important;
+  }
+
+  /* 2. 圖片變窄 + 滑動更順 */
+  .gallery-slider {
+    height: 40vh !important;
+    min-height: 240px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    width: 70vw !important;
+    scroll-snap-align: start;
+  }
+
+  .slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
