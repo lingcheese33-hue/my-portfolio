@@ -1545,7 +1545,7 @@ html[lang="zh-Hant"] .lang-en { display: none; }
   pointer-events: auto;
 }
 @media (max-width: 768px) {
-  /* 1. 縮小文字 */
+  /* 縮小文字 */
   h1 {
     font-size: 1.8rem !important;
     font-weight: 700 !important;
@@ -1574,22 +1574,79 @@ html[lang="zh-Hant"] .lang-en { display: none; }
     margin-bottom: 40px !important;
   }
 
-  /* 2. 圖片變窄 + 滑動更順 */
+  /* 滑塊高度：由圖片自己撐開 */
   .gallery-slider {
-    height: 40vh !important;
-    min-height: 240px !important;
-    scroll-snap-type: x mandatory;
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start;
     -webkit-overflow-scrolling: touch;
   }
 
+  /* 圖片：不裁切、按原比例 */
   .slide {
-    width: 70vw !important;
-    scroll-snap-align: start;
+    width: auto !important;
+    height: auto !important;
+    flex-shrink: 0;
   }
 
   .slide img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    width: auto !important;
+    height: 45vh !important;
+    max-height: 380px !important;
+    object-fit: contain !important;
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  /* 縮小文字 */
+  h1 {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .page-wide > .kicker {
+    font-size: 0.65rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .album-heading {
+    font-size: 0.95rem !important;
+    gap: 8px !important;
+  }
+
+  .album-num {
+    font-size: 0.7rem !important;
+  }
+
+  .album-meta {
+    margin-top: 12px !important;
+  }
+
+  .album-block {
+    margin-bottom: 40px !important;
+  }
+
+  /* 滑塊高度：由圖片自己撐開 */
+  .gallery-slider {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 圖片：不裁切、按原比例 */
+  .slide {
+    width: auto !important;
+    height: auto !important;
+    flex-shrink: 0;
+  }
+
+  .slide img {
+    width: auto !important;
+    height: 45vh !important;
+    max-height: 380px !important;
+    object-fit: contain !important;
+    display: block;
   }
 }
