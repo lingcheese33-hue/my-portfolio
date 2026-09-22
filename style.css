@@ -1,0 +1,1547 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+:root {
+  --paper: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #6a6a6a;
+  --line: #ececec;
+  --nav: 72px;
+  --max: 720px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--paper);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--nav);
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.nav a {
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+.nav a:hover,
+.nav a.is-active {
+  color: var(--ink);
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.lang-btn.is-active,
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-divider {
+  color: #c8c8c8;
+}
+
+.page {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: calc(var(--nav) + 72px) 40px 96px;
+  flex: 1;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+}
+
+.home-hero {
+  max-width: var(--max);
+  padding: 48px 0 80px;
+}
+
+.home-hero h1 {
+  margin: 0 0 28px;
+  font-size: clamp(3.4rem, 8vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.tagline-en,
+.tagline-zh,
+.hashtag,
+.bio {
+  margin: 0;
+}
+
+.tagline-en {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.tagline-zh {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.hashtag {
+  margin: 36px 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.bio {
+  max-width: 38rem;
+  margin-bottom: 48px;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.kicker {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2 {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  color: #111111;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+}
+
+.lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 38rem;
+  color: #4a5568;
+}
+
+.section {
+  padding: 56px 0 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+}
+
+.work-list,
+.photo-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.work-list {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card,
+.photo-card {
+  display: block;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.card img,
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.card:hover img,
+.photo-card:hover img {
+  transform: scale(1.02);
+  filter: grayscale(0%);
+}
+
+.card-body {
+  padding: 16px 4px 8px;
+}
+
+.card-body h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card-body p,
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.photo-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.photo-card {
+  border: 0;
+  padding: 0;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  max-width: 520px;
+}
+
+label span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--ink);
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 0 40px 40px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 32px;
+  background: rgba(26, 26, 26, 0.88);
+  z-index: 40;
+}
+
+.lightbox.is-open {
+  display: grid;
+}
+
+.lightbox img {
+  max-width: min(92vw, 1100px);
+  max-height: 86vh;
+  object-fit: contain;
+}
+
+@media (max-width: 760px) {
+  .header-inner,
+  .page,
+  .site-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header-inner {
+    height: auto;
+    min-height: var(--nav);
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .nav {
+    gap: 16px 20px;
+  }
+
+  .grid-2,
+  .work-list,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* 语言切换：默认显示英文，隐藏中文 */
+.lang-zh { display: none; }
+.lang-en { display: inline; }
+
+/* 当 html lang="zh-Hant" 时，显示中文，隐藏英文 */
+html[lang="zh-Hant"] .lang-zh { display: inline; }
+html[lang="zh-Hant"] .lang-en { display: none; }
+
+/* 语言切换按钮高亮 */
+.lang-btn.is-active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.lang-btn {
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 0 4px;
+}
+/* ============================================
+   Project Card — Cover + Expandable Details
+   ============================================ */
+
+   .project-card {
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    padding: 0;
+    margin-bottom: 72px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  
+  .project-card:last-child {
+    margin-bottom: 0;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: #e0e4e8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* 封面區 */
+  .project-cover {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .project-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  
+  .project-header {
+    padding: 40px 56px 32px;
+    position: relative;
+  }
+  
+  .project-header .kicker {
+    font-size: 13px;
+    color: #8a9a8a;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+  
+  .project-header h3 {
+    color: #111111;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    margin: 0 0 12px;
+    transition: color 0.25s ease;
+  }
+  
+  .project-card:hover .project-header h3 {
+    color: #4a5568;
+  }
+  
+  .project-header h4 {
+    color: #718096;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eef0f2;
+  }
+  
+  /* 展開指示 + */
+  .project-toggle {
+    position: absolute;
+    top: 40px;
+    right: 56px;
+    font-size: 28px;
+    color: #a0aec0;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .project-card.is-open .project-toggle {
+    transform: rotate(45deg);
+    color: #1a1a1a;
+  }
+  
+  /* 詳情區：預設隱藏 */
+  .project-details {
+    display: none;
+    padding: 0 56px 56px;
+  }
+  
+  .project-card.is-open .project-details {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .project-details .meta {
+    color: #a0aec0;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    margin: 0 0 28px;
+  }
+  
+  .project-details p {
+    color: #2d3748;
+    font-size: 16px;
+    line-height: 1.85;
+    margin: 0 0 24px;
+  }
+  
+  .project-details p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .project-details strong {
+    font-weight: 600;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #f7e1a0 65%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 0 2px;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 768px) {
+    .project-header {
+      padding: 28px 24px 24px;
+    }
+    .project-toggle {
+      top: 28px;
+      right: 24px;
+    }
+    .project-header h3 {
+      font-size: 20px;
+    }
+    .project-header h4 {
+      font-size: 14px;
+      padding-bottom: 16px;
+    }
+    .project-details {
+      padding: 0 24px 40px;
+    }
+    .project-details p {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+  }
+  /* ============================================
+   Photography — Curator's Note & Albums
+   ============================================ */
+
+/* 美學理念 */
+.curators-note {
+  margin: 48px 0 72px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.curators-note p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2d3748;
+}
+
+.curators-note p:last-child {
+  margin-bottom: 0;
+}
+
+.note-zh {
+  color: #1a1a1a;
+}
+
+.note-en {
+  color: #718096;
+  font-style: italic;
+}
+
+/* 螢光筆底線效果 */
+.curators-note strong {
+  font-weight: 600;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #f7e1a0 65%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0 2px;
+}
+
+/* 相簿索引 */
+.album-index {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 96px;
+}
+
+.album-link {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #eef0f2;
+  text-decoration: none;
+  transition: padding-left 0.3s ease, border-color 0.3s ease;
+}
+
+.album-link:hover {
+  padding-left: 12px;
+  border-color: #d0d4d8;
+}
+
+.album-num {
+  font-size: 13px;
+  color: #a0aec0;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.album-title {
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.album-link:hover .album-title {
+  color: #4a5568;
+}
+
+/* 相簿區塊 */
+.photo-album {
+  margin-bottom: 120px;
+}
+
+.photo-album:last-child {
+  margin-bottom: 0;
+}
+
+.album-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+/* 照片網格 */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .curators-note {
+    margin: 32px 0 48px;
+    padding-bottom: 32px;
+  }
+  .curators-note p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .album-link {
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .album-title {
+    font-size: 16px;
+  }
+  .photo-album {
+    margin-bottom: 80px;
+  }
+  .album-heading {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================
+   Photo Lightbox
+   ============================================ */
+
+/* 縮圖按鈕 */
+.photo-item {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.02);
+  filter: brightness(0.95);
+}
+
+/* Lightbox 全屏層 */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 48px;
+  background: rgba(26, 26, 26, 0.92);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.lightbox.is-open {
+  display: grid;
+  opacity: 1;
+}
+
+.lightbox-content {
+  margin: 0;
+  max-width: min(92vw, 1200px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+}
+
+.lightbox-content figcaption {
+  margin-top: 20px;
+  color: #faf9f6;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  font-style: italic;
+}
+
+/* 關閉按鈕 */
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  color: #faf9f6;
+  font-size: 32px;
+  font-weight: 200;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg);
+  color: #f7e1a0;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 24px;
+  }
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+    font-size: 28px;
+  }
+  .lightbox-content figcaption {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+}
+/* ============================================
+   Contact — Light Magazine Style
+   ============================================ */
+
+   .contact-section {
+    margin-top: 48px;
+  }
+  
+  .contact-intro {
+    margin: 0 0 56px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2d3748;
+    max-width: 42rem;
+  }
+  
+  /* 聯絡列表 */
+  .contact-list {
+    list-style: none;
+    margin: 0 0 72px;
+    padding: 0;
+    border-top: 1px solid #eef0f2;
+  }
+  
+  .contact-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eef0f2;
+  }
+  
+  .contact-label {
+    font-size: 12px;
+    color: #a0aec0;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    width: 90px;
+  }
+  
+  .contact-list a {
+    color: #1a1a1a;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  
+  .contact-list a:hover {
+    color: #8a9a8a;
+  }
+  
+  /* 履歷下載按鈕 */
+  .cv-download {
+    margin-top: 0;
+  }
+  
+  .cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    color: #1a1a1a;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cv-download-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+  
+  .cv-note {
+    margin: 24px 0 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #a0aec0;
+    max-width: 42rem;
+    font-style: italic;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 768px) {
+    .contact-section {
+      margin-top: 32px;
+    }
+    .contact-intro {
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+    .contact-list li {
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 0;
+    }
+    .contact-label {
+      width: auto;
+      font-size: 11px;
+    }
+    .contact-list a {
+      font-size: 15px;
+    }
+    .cv-download-btn {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+    .cv-note {
+      font-size: 12px;
+    }
+  }
+  /* ============================================
+   Image Container — Magazine Zoom Effect
+   ============================================ */
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter;
+}
+
+.image-container:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.94);
+}
+/* ============================================
+   Photography — Album Viewer
+   ============================================ */
+
+   .photo-album {
+    margin-bottom: 120px;
+  }
+  
+  .photo-album:last-child {
+    margin-bottom: 0;
+  }
+  
+  .album-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: -0.01em;
+    margin: 0 0 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eef0f2;
+  }
+  
+  .album-num {
+    font-size: 13px;
+    color: #a0aec0;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+  }
+  
+  /* 主圖 */
+  .album-viewer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .album-main {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .album-main-img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.35s ease;
+  }
+  
+  .album-caption {
+    margin: 0;
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #718096;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    border-top: 1px solid #eef0f2;
+  }
+  
+  /* 縮圖條 */
+  .album-thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  
+  .album-thumbs::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .album-thumbs::-webkit-scrollbar-thumb {
+    background: #eef0f2;
+    border-radius: 2px;
+  }
+  
+  .thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2px;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .thumb:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .thumb.is-active {
+    opacity: 1;
+    outline: 2px solid #1a1a1a;
+    outline-offset: 0;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 768px) {
+    .photo-album {
+      margin-bottom: 80px;
+    }
+    .album-heading {
+      font-size: 18px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+    }
+    .album-caption {
+      padding: 12px 16px;
+      font-size: 12px;
+    }
+    .thumb {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  /* ============================================
+   Photography — Album Index & Viewer
+   ============================================ */
+
+/* 相簿索引（只顯示標題） */
+.album-index {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.album-link {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid #eef0f2;
+  text-decoration: none;
+  transition: padding-left 0.35s ease, border-color 0.35s ease;
+}
+
+.album-link:first-child {
+  border-top: 1px solid #eef0f2;
+}
+
+.album-link:hover {
+  padding-left: 16px;
+  border-color: #d0d4d8;
+}
+
+.album-num {
+  font-size: 13px;
+  color: #a0aec0;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.album-title {
+  font-size: 22px;
+  color: #1a1a1a;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.album-link:hover .album-title {
+  color: #4a5568;
+}
+
+/* 相簿區塊 */
+.photo-album {
+  margin-bottom: 120px;
+}
+
+.photo-album:last-child {
+  margin-bottom: 0;
+}
+
+/* 相簿頂部：返回按鈕 + 標題 */
+.album-header {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.album-back {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #a0aec0;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+.album-back:hover {
+  color: #1a1a1a;
+}
+
+.album-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* 主圖 */
+.album-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.album-main {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #eef0f2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.album-main-img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.album-caption {
+  margin: 0;
+  padding: 16px 24px;
+  font-size: 13px;
+  color: #718096;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  border-top: 1px solid #eef0f2;
+}
+
+/* 縮圖條 */
+.album-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.album-thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.album-thumbs::-webkit-scrollbar-thumb {
+  background: #eef0f2;
+  border-radius: 2px;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.thumb.is-active {
+  opacity: 1;
+  outline: 2px solid #1a1a1a;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .album-link {
+    padding: 24px 0;
+    gap: 16px;
+  }
+  .album-title {
+    font-size: 18px;
+  }
+  .album-header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+  }
+  .album-heading {
+    font-size: 18px;
+  }
+  .photo-album {
+    margin-bottom: 80px;
+  }
+  .album-caption {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+  .thumb {
+    width: 64px;
+    height: 64px;
+  }
+}
+/* ============================================
+   Photography — Full-width Album Sliders
+   ============================================ */
+
+/* 讓 Photography 頁可以超出 720px 限制 */
+.page-wide {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 但標題和引言保持原本寬度 */
+.page-wide > .kicker,
+.page-wide > h1,
+.page-wide > .curators-note {
+  width: min(100%, 720px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* 相簿區塊 */
+.album-block {
+  margin-top:48px;
+  margin-bottom: 120px;
+}
+
+.album-block:last-child {
+  margin-bottom: 80px;
+}
+
+.album-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  padding: 0 40px 16px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.album-num {
+  font-size: 13px;
+  color: #a0aec0;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
+/* 橫向無縫滑塊 */
+.album-slider {
+  display: flex;
+  flex-direction: row;
+  height: 380px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.album-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.album-slider:active {
+  cursor: grabbing;
+}
+
+/* 單張圖片容器 */
+.slide {
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* 圖片本身 */
+.slide img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter;
+}
+
+.slide:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.94);
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .page-wide > .kicker,
+  .page-wide > h1,
+  .page-wide > .curators-note {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .album-heading {
+    padding: 0 20px 12px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .album-block {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .album-slider {
+    height: 260px;
+  }
+}
+/* ============================================
+   Lightbox
+   ============================================ */
+
+   .lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    padding: 48px;
+    background: rgba(26, 26, 26, 0.92);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  
+  .lightbox.is-open {
+    display: grid;
+    opacity: 1;
+  }
+  
+  .lightbox-content {
+    margin: 0;
+    max-width: min(92vw, 1200px);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 2px;
+  }
+  
+  .lightbox-content figcaption {
+    margin-top: 20px;
+    color: #faf9f6;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    color: #faf9f6;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .lightbox-close:hover {
+    transform: rotate(90deg);
+    color: #f7e1a0;
+  }
+  
+  /* 讓滑塊內的圖片顯示可點擊 */
+  .lightbox-trigger {
+    cursor: zoom-in;
+  }
+  
+  /* 手機版 */
+  @media (max-width: 768px) {
+    .lightbox {
+      padding: 24px;
+    }
+    .lightbox-close {
+      top: 16px;
+      right: 16px;
+      font-size: 28px;
+    }
+    .lightbox-content figcaption {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+  }
+  /* 禁止圖片拖拽與選取 */
+.slide img,
+.lightbox-content img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+}
+  
