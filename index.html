@@ -1,63 +1,77 @@
-<!DOCT<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXX | Social Media & Content Professional</title>
+  <title>Explore with CHEESE — Ling Chenxi</title>
+  <meta name="description" content="Ling Chenxi (Cheese) — Social media & content professional. Visual storyteller. Hong Kong. An interactive hero where every letter transforms on hover.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="explore-with-CHEESE/cheese.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home / 首頁</a>
-        <a href="work.html">Work / 作品</a>
-        <a href="photography.html">Photography / 攝影</a>
-        <a href="contact.html">Contact / 聯絡</a>
-      </nav>
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button class="lang-btn is-active" type="button" data-set-lang="en">EN</button>
-        <span class="lang-divider" aria-hidden="true">/</span>
-        <button class="lang-btn" type="button" data-set-lang="zh">繁</button>
-      </div>
+<body class="cheese-page">
+
+  <!-- 背景影片（app-cheese.js 需要，預設隱藏） -->
+  <video id="background-video" muted loop playsinline aria-hidden="true"></video>
+  <div class="video-shade" aria-hidden="true"></div>
+
+  <!-- 三欄頁頭：只留左上 Exploring，右上放 EN / 繁 -->
+  <header class="editorial-top">
+    <div class="focus-block">
+      <span class="small-label">Exploring:</span>
+      <p>
+        <span class="lang-en">Ling Chenxi or Cheese</span>
+        <span class="lang-zh">Ling Chenxi 或叫我 Cheese</span><br>
+        <span class="lang-en">Social media &amp; content professional.</span>
+        <span class="lang-zh">社交媒體及內容專業人士</span><br>
+        <span class="lang-en">Visual storyteller.</span>
+        <span class="lang-zh">視覺敘事者</span><br>
+        <span class="lang-en">Hong Kong.</span>
+        <span class="lang-zh">香港</span>
+      </p>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn is-active" type="button" data-set-lang="en">EN</button>
+      <span class="lang-divider" aria-hidden="true">/</span>
+      <button class="lang-btn" type="button" data-set-lang="zh">繁</button>
     </div>
   </header>
 
-  <main class="page">
-    <h1>XXX</h1>
-
-    <p class="lede">
-      <span class="lang-en">Social media &amp; content professional. Visual storyteller. Hong Kong.</span>
-      <span class="lang-zh">社交媒體及內容專業人士 | 視覺敘事者 | 香港</span>
-    </p>
-
-    <p class="kicker">#contentasarchive</p>
-
-    <p>
-      <span class="lang-en">Six years in media and new-media operations. Built a Facebook account from zero to 20,000+ followers. Produced 100,000+ and 1,000,000+ view viral content. Editorial gatekeeper with 200+ front pages. Collaborated with 30+ overseas media organisations.</span>
-      <span class="lang-zh">六年媒體及新媒體運營經驗。由零搭建 Facebook 帳號至 2 萬+ 粉絲。打造 10 萬+ 及百萬級閱讀爆款內容。編輯把關 200+ 頭版。與 30+ 海外媒體機構協作。</span>
-    </p>
-
-    <div class="buttons">
-      <a class="btn" href="work.html">
-        <span class="lang-en">View work</span>
-        <span class="lang-zh">查看作品</span>
-      </a>
-      <a class="btn" href="photography.html">
-        <span class="lang-en">View photography</span>
-        <span class="lang-zh">查看攝影</span>
-      </a>
-      <a class="btn" href="contact.html">
-        <span class="lang-en">Contact</span>
-        <span class="lang-zh">聯絡</span>
-      </a>
-    </div>
+  <!-- Hero：大字 + 三個浮動標籤 -->
+  <main class="editorial-hero">
+    <h1 aria-label="Explore with CHEESE">
+      <span id="words" class="words" aria-hidden="true"></span>
+    </h1>
+    <a class="floating-tag tag-one" href="work.html">work</a>
+    <a class="floating-tag tag-two" href="photography.html">photography</a>
+    <a class="floating-tag tag-three" href="contact.html">contact</a>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 Chenxi Ling. All rights reserved.</p>
+  <!-- 頁腳 -->
+  <footer class="editorial-bottom">
+    <div class="bottom-left">
+      <p class="folio-note">CHEESE UNIVERSE · VOL. 001</p>
+      <div class="controls">
+        <a class="home-pill" href="index.html">Home</a>
+        <button id="replay" disabled>↻ &nbsp; Replay intro</button>
+        <button id="pause" disabled aria-pressed="false">Pause auto</button>
+      </div>
+    </div>
+    <span class="bottom-middle"></span>
+    <div class="bottom-right">
+      <time id="local-clock" aria-label="local time">--:--</time>
+      <span>YOUR LOCAL TIME</span>
+    </div>
   </footer>
 
+  <!-- app-cheese.js 需要但視覺隱藏的元素 -->
+  <p id="status" class="hint" role="status">Preparing letter images…</p>
+  <button id="upload-video" type="button" hidden>Upload background video</button>
+  <button id="remove-video" type="button" hidden>Remove video</button>
+  <input id="video-file" type="file" accept="video/*" hidden>
+
+  <!-- 腳本：先載 config，再載 app-cheese，最後載 script.js（語言切換） -->
+  <script src="explore-with-CHEESE/config.js"></script>
+  <script src="app-cheese.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
