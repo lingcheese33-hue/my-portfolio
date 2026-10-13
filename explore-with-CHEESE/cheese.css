@@ -199,10 +199,10 @@
     z-index: 4;
     background: #e2e7de;
     color: #203128;
-    padding: 8px 12px;
+    padding: 14px 22px;
     border: 1px dashed #7a8a7d;
-    border-radius: 8px;
-    font: 15px/1.15 Arial, sans-serif;
+    border-radius: 10px;
+    font: 22px/1.15 Arial, sans-serif;
     letter-spacing: -.025em;
     text-decoration: none;
     transition: background .25s ease, color .25s ease, transform .25s ease;
@@ -334,8 +334,8 @@
       font-size: clamp(24px, 9vw, 48px);
     }
     .cheese-page .floating-tag {
-      font-size: 10px;
-      padding: 5px 8px;
+      font-size: 14px;
+      padding: 8px 12px;
     }
     .cheese-page .tag-one { left: 3%; top: 18%; }
     .cheese-page .tag-two { right: 1%; top: 21%; }
