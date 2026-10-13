@@ -1801,7 +1801,7 @@ html[lang="zh-Hant"] .lang-en { display: none; }
 /* 手機端也留出 */
 @media (max-width: 768px) {
   .gallery-page {
-    padding-top: calc(var(--nav) + 20px);
+    padding-top: calc(var(--nav) + 48px);
   }
 }
 /* 文字區塊居中（限制寬度） */
