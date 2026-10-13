@@ -1851,3 +1851,12 @@ main.page {
     padding-top: calc(var(--nav) + 48px) !important;
   }
 }
+/* 手機版：縮小 h1 與下方內容的距離 */
+@media (max-width: 768px) {
+  .gallery-page h1 {
+    margin-bottom: 8px;
+  }
+  .gallery-page .album-block {
+    margin-top: 24px;
+  }
+}
