@@ -1830,3 +1830,24 @@ html[lang="zh-Hant"] .lang-en { display: none; }
     padding-right: 20px;
   }
 }
+css
+/* 統一 work / contact 與 photography 的頂部行距 */
+main.page {
+  padding-top: calc(var(--nav) + 40px);
+}
+
+@media (max-width: 768px) {
+  main.page {
+    padding-top: calc(var(--nav) + 48px);
+  }
+}
+/* 統一 work / contact 與 photography 的頂部行距 */
+main.page {
+  padding-top: calc(var(--nav) + 40px) !important;
+}
+
+@media (max-width: 768px) {
+  main.page {
+    padding-top: calc(var(--nav) + 48px) !important;
+  }
+}
